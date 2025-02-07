@@ -35,7 +35,6 @@ const Login = () => {
         signInWithEmailAndPassword(auth, emailValue, passwordValue)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log("User Signed In Successfully");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -73,8 +72,6 @@ const Login = () => {
               photoURL: "https://example.com/jane-q-user/profile.jpg",
             })
               .then(() => {
-                console.log(user);
-                console.log("User Signed Up Successfully");
                 const { uid, email, displayName } = auth.currentUser;
                 dispatch(addUser({ uid, email, displayName }));
               })
