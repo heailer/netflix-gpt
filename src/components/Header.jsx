@@ -16,7 +16,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        window.location.replace("http://localhost:5173/");
+        window.location.replace("/");
       })
       .catch((error) => {
         // An error happened.
