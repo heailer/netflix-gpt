@@ -11,7 +11,7 @@ const GptList = ({ movies }) => {
           {movies
             .filter((movie) => movie && movie.poster_path)
             .map((movie) => (
-              <div key={movie.id} className="w-44 pr-4 rounded-sm">
+              <div key={movie.id} className="w-36 md:w-44 pr-4 rounded-sm">
                 <img
                   alt={movie.title || "movie-poster"}
                   src={movieCardImage + movie.poster_path}

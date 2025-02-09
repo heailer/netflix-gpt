@@ -44,10 +44,14 @@ const Header = () => {
   };
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={netfixLogo} alt="Netflix Logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+      <img
+        className="w-44 mx-auto md:mx-0 "
+        src={netfixLogo}
+        alt="Netflix Logo"
+      />
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 justify-between">
           {gptSearch && (
             <select
               className="bg-gray-900 p-2 text-white rounded-sm"
@@ -60,14 +64,14 @@ const Header = () => {
             </select>
           )}
           <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg hover:opacity-80"
+            className="py-2 px-4 mx-1 md:mx-4 my-0 md:my-2 bg-purple-800 text-white rounded-lg hover:opacity-80"
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "Home" : "Movies Recommandation Bot"}
+            {showGptSearch ? "Home" : "GPT Search"}
           </button>
           <img
             src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"
-            className="w-12 h-12"
+            className="w-12 h-12 hidden md:inline-block"
           />
           <button
             className="p-2 font-bold text-white hover:opacity-80"

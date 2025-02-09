@@ -14,7 +14,7 @@ const GptMovieSuggestions = () => {
         ))}
       </div>
     );
-  if (!movieNames) return <div>No Suggestions Found</div>;
+  if (!movieNames) return <div></div>;
   return (
     <div className="p-4 m-4 bg-black/70  text-white ">
       <GptList movies={gptMovies} />

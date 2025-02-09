@@ -19,8 +19,8 @@ const Login = () => {
   const password = useRef();
   const name = useRef();
   const handleSignIn = () => {
-    const emailValue = email.current.value || "trump@gmail.com";
-    const passwordValue = password.current.value || "Trump@12345";
+    const emailValue = email.current.value;
+    const passwordValue = password.current.value;
     const emailValidate = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailValue);
     if (!emailValidate) {
       setErrorMessage("Please enter a valid email address");
@@ -97,10 +97,14 @@ const Login = () => {
     <div className="">
       <Header />
       <div className="absolute">
-        <img src={backGroundImage} alt="Background" />
+        <img
+          className="h-screen object-cover"
+          src={backGroundImage}
+          alt="Background"
+        />
       </div>
 
-      <div className="bg-[rgba(0,0,0,0.8)] absolute w-3/12 my-36 mx-auto left-0 right-0 p-12 text-white py-4 h-auto">
+      <div className="bg-[rgba(0,0,0,0.8)] absolute w-11/12 md:w-3/12 my-36 mx-auto left-0 right-0 p-12 text-white py-4 h-auto">
         <form onSubmit={(e) => e.preventDefault()}>
           <h1 className="font-bold text-2xl my-6">
             {signInForm ? "Sign In" : "Sign Up"}
