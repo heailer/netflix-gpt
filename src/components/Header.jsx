@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/slices/userSlice";
-import { toggleGptSearchView } from "../utils/slices/gptSlice";
+import { removeGptMovies, toggleGptSearchView } from "../utils/slices/gptSlice";
 import { changeLanguage } from "../utils/slices/configSlice";
 
 const Header = () => {
@@ -36,6 +36,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   const handleGptSearchClick = () => {
+    dispatch(removeGptMovies());
     dispatch(toggleGptSearchView());
   };
   const handleLanguageChange = (e) => {
@@ -62,7 +63,7 @@ const Header = () => {
             className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg hover:opacity-80"
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "Home" : "GPT Search"}
+            {showGptSearch ? "Home" : "Movies Recommandation Bot"}
           </button>
           <img
             src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"

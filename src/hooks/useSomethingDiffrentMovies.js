@@ -1,10 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants/random";
 import { addSomethingDiffrentMovies } from "../utils/slices/moviesSlice";
 import { useEffect } from "react";
 
 const useSomethingDiffrentMovies = () => {
   const dispatch = useDispatch();
+  const somethingDiffrentMovies = useSelector(
+    (store) => store.movies.somethingDiffrentMovies
+  );
   const fetchMovies = async () => {
     try {
       const response = await fetch(
@@ -18,7 +21,7 @@ const useSomethingDiffrentMovies = () => {
     }
   };
   useEffect(() => {
-    fetchMovies();
+    !somethingDiffrentMovies && fetchMovies();
   }, []);
 };
 
